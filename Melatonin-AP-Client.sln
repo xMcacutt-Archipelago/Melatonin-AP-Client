@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melatonin-AP-Client", "Melatonin-AP-Client\Melatonin-AP-Client.csproj", "{EE083168-F5D9-4EF9-96CF-13A91535CDEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE083168-F5D9-4EF9-96CF-13A91535CDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE083168-F5D9-4EF9-96CF-13A91535CDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE083168-F5D9-4EF9-96CF-13A91535CDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE083168-F5D9-4EF9-96CF-13A91535CDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

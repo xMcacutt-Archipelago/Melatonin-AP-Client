@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "LkLI7ANUvd4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\RiderProjects\\Melatonin-AP-Client\\Melatonin-AP-Client\\Melatonin-AP-Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\archipelago.multiclient.net\\6.7.0\\archipelago.multiclient.net.6.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\bepinex.baselib\\5.4.20\\bepinex.baselib.5.4.20.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\bepinex.core\\5.4.21\\bepinex.core.5.4.21.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\harmonyx\\2.7.0\\harmonyx.2.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\krafs.publicizer\\2.3.0\\krafs.publicizer.2.3.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\mono.cecil\\0.11.4\\mono.cecil.0.11.4.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\monomod.runtimedetour\\21.12.13.1\\monomod.runtimedetour.21.12.13.1.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\monomod.utils\\21.12.13.1\\monomod.utils.21.12.13.1.nupkg.sha512"
+  ],
+  "logs": []
+}
