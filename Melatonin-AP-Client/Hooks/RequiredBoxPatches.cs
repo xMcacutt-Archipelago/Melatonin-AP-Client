@@ -14,7 +14,7 @@ namespace Melatonin_AP_Client.Hooks
             var levelIndex = Array.IndexOf(Map.env.Neighbourhood.Landmarks, LandmarkPatches.LastTriggeredLandmark);
             __instance.message.textMeshPro.text = $"unlock with {((chapterIndex - 1) * 4 + levelIndex) * PluginMain.SlotData.StarsPerLevel} stars";
             if (PluginMain.ArchipelagoHandler.starCount >= ((chapterIndex - 1) * 4 + levelIndex) * PluginMain.SlotData.StarsPerLevel)
-                __instance.message.textMeshPro.text = $"Complete all of tonight's dreams to unlock";
+                __instance.message.textMeshPro.text = $"Complete all four dreams";
         }
     }
 }
