@@ -59,6 +59,7 @@
     <ItemGroup>
         <MelatoninDependencies Include="$(NuGetPackageRoot)archipelago.multiclient.net\6.7.0\lib\net45\Archipelago.MultiClient.Net.dll" />
         <MelatoninDependencies Include="$(NuGetPackageRoot)archipelago.multiclient.net\6.7.0\lib\net45\Newtonsoft.Json.dll"/>
+        <MelatoninDependencies Include="./System.Runtime.Serialization.dll"/>
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
