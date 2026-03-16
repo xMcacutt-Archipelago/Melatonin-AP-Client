@@ -60,6 +60,17 @@ namespace Melatonin_AP_Client
             Session.Socket.SocketClosed += OnSocketClosed;
             Session.Items.ItemReceived += ItemReceived;
         }
+        
+        void OnDestroy()
+        {
+            if (Session == null)
+                return;
+            Session.MessageLog.OnMessageReceived -= OnMessageReceived;
+            Session.Socket.ErrorReceived -= OnError;
+            Session.Socket.SocketClosed -= OnSocketClosed;
+            Session.Items.ItemReceived -= ItemReceived;
+        }
+
 
         public IEnumerator ConnectRoutine()
         {

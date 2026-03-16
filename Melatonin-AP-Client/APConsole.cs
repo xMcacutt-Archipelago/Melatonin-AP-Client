@@ -89,7 +89,7 @@ namespace Melatonin_AP_Client
             DontDestroyOnLoad(consoleObject);
             _instance = consoleObject.AddComponent<APConsole>();
             _instance.BuildUI();
-
+            
             if (PluginMain.MessageInTime != null) _instance._slideInTime = PluginMain.MessageInTime.Value;
             if (PluginMain.MessageHoldTime != null) _instance._holdTime = PluginMain.MessageHoldTime.Value;
             if (PluginMain.MessageOutTime != null) _instance._fadeOutTime = PluginMain.MessageOutTime.Value;

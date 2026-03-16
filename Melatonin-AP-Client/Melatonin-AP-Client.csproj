@@ -3,7 +3,7 @@
     <PropertyGroup>
         <RootNamespace>Melatonin_AP_Client</RootNamespace>
         <Nullable>enable</Nullable>
-        <LangVersion>8</LangVersion>
+        <LangVersion>10</LangVersion>
         <EnvFileContent Condition="Exists('$(MSBuildProjectDirectory)\.env')">$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)\.env'))</EnvFileContent>
         <STEAM_PATH>$([System.Text.RegularExpressions.Regex]::Match($(EnvFileContent), `(?m)^STEAM_PATH\s*=\s*["']?([^"'\r\n]+)["']?`).Groups[1].Value)</STEAM_PATH>
         <STEAM_PATH Condition="'$(STEAM_PATH)' == ''">C:\Program Files (x86)\Steam</STEAM_PATH>
