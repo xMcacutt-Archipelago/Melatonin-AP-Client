@@ -12,7 +12,6 @@
             pd.isBiggerHitWindows = settingsData.isBiggerHitWindows;
             pd.isEasyScoring = settingsData.isEasyScoring;
             pd.isVibrationDisabled = settingsData.isVibrationDisabled;
-            pd.igc = settingsData.igc;
             pd.isDirectionKeysAlt = settingsData.isDirectionKeysAlt;
             pd.isTp = settingsData.isTp;
             pd.isCreator = settingsData.isCreator;
@@ -73,7 +72,7 @@
             pd.fn = gameData.fn;
             pd.fnAlt = gameData.fnAlt;
             pd.min = gameData.min;
-
+            pd.igc = gameData.igc;
             return pd;
         }
         
@@ -88,7 +87,6 @@
             settingsData.isBiggerHitWindows = pd.isBiggerHitWindows;
             settingsData.isEasyScoring = pd.isEasyScoring;
             settingsData.isVibrationDisabled = pd.isVibrationDisabled;
-            settingsData.igc = pd.igc;
             settingsData.isDirectionKeysAlt = pd.isDirectionKeysAlt;
             settingsData.isTp = pd.isTp;
             settingsData.isCreator = pd.isCreator;
@@ -105,6 +103,7 @@
             settingsData.sfx = pd.sfx;
             settingsData.metronome = pd.metronome;
             settingsData.contrast = pd.contrast;
+            gameData.igc = pd.igc;
             gameData.cn = pd.cn;
             gameData.fd = pd.fd;
             gameData.fdAlt = pd.fdAlt;

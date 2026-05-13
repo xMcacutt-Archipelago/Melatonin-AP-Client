@@ -170,8 +170,11 @@ namespace Melatonin_AP_Client
                     starIds.Add(helper.Index);
                     PluginMain.logger.LogInfo(helper.Index);
                 }
-                TotalBoxPatches.SetStars(starCount);
-                UnlockHandler.CheckUnlocks(starCount);
+                Dispatcher.Run(() =>
+                {
+                    TotalBoxPatches.SetStars(starCount);
+                    UnlockHandler.CheckUnlocks(starCount);
+                });
             }
             catch (Exception ex)
             {

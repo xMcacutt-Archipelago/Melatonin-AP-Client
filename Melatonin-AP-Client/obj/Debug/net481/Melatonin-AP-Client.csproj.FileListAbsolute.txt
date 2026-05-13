@@ -24,3 +24,4 @@ C:\Users\admin\RiderProjects\Melatonin-AP-Client\Melatonin-AP-Client\obj\Debug\n
 C:\Users\admin\RiderProjects\Melatonin-AP-Client\Melatonin-AP-Client\obj\Debug\net481\Melatonin-AP-Client.pdb
 C:\Users\admin\RiderProjects\Melatonin-AP-Client\Melatonin-AP-Client\bin\Debug\net481\Unity.InputSystem.dll
 C:\Users\admin\RiderProjects\Melatonin-AP-Client\Melatonin-AP-Client\bin\Debug\net481\UnityEngine.JSONSerializeModule.dll
+C:\Users\admin\RiderProjects\Melatonin-AP-Client\Melatonin-AP-Client\obj\Debug\net481\Melatonin-AP-Client.sourcelink.json

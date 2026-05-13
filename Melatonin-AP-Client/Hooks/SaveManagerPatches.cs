@@ -15,7 +15,6 @@ namespace Melatonin_AP_Client.Hooks
         public bool isBiggerHitWindows;
         public bool isEasyScoring;
         public bool isVibrationDisabled;
-        public bool igc;
         public bool isDirectionKeysAlt;
         public bool isTp;
         public bool isCreator;
@@ -37,6 +36,7 @@ namespace Melatonin_AP_Client.Hooks
     public class PlayerDataGame
     {
         public int cn = -1;
+        public bool igc;
         public int fd;
         public int fdAlt;
         public int sp;

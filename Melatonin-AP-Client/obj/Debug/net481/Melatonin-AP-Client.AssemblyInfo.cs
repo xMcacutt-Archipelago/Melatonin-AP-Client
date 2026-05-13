@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Melatonin-AP-Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8062a625341a0fe83d417afc980409fdca77280")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+baad0fb5fda6a6fc29863f84571a11131df6e624")]
 [assembly: System.Reflection.AssemblyProductAttribute("Melatonin-AP-Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Melatonin-AP-Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

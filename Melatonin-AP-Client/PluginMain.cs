@@ -22,7 +22,7 @@ namespace Melatonin_AP_Client
         public const string GameName = "Melatonin";
         private const string PluginName = "MelatoninAPClient";
         private const string GUID = "melatonin_ap_client";
-        private const string Version = "1.0.3";
+        private const string Version = "1.0.4";
 
         private readonly Harmony _harmony = new Harmony(GUID);
         public static ManualLogSource? logger;
@@ -51,6 +51,7 @@ namespace Melatonin_AP_Client
             ArchipelagoHandler = gameObject.AddComponent<ArchipelagoHandler>();
             OptionInputHandler = gameObject.AddComponent<OptionInputHandler>();
             OptionInputHandler.enabled = false;
+            gameObject.AddComponent<Dispatcher>();
             EnableDebugLogging = Config.Bind(
                 "Logging",
                 "EnableDebugLogging",
@@ -83,7 +84,7 @@ namespace Melatonin_AP_Client
                 "Logging",
                 "MessageOutTime",
                 0.5f,
-                "How long messages stay in the log before animating out."
+                "How long messages take to animate out."
             );
         }
 
