@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Colors;
@@ -47,18 +48,40 @@ namespace Melatonin_AP_Client
             "had a skill issue (died)",
         };
 
-        public void CreateSession(string server, string slot, string password)
+        public bool CreateSession(string server, string slot, string password)
         {
+            OnConnectionFailed = null;
+            OnConnected = null;
+            OnDisconnected = null;
+            if (Session != null)
+            {
+                try
+                {
+                    Session.MessageLog.OnMessageReceived -= OnMessageReceived;
+                    Session.Socket.ErrorReceived -= OnError;
+                    Session.Socket.SocketClosed -= OnSocketClosed;
+                    Session.Items.ItemReceived -= ItemReceived;
+                    Session.Socket.DisconnectAsync(); 
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+            
             Server = server;
             Slot = slot;
             Password = password;
             _locationsToCheck = new ConcurrentQueue<long>();
-            starIds = new HashSet<int>();
-            Session = ArchipelagoSessionFactory.CreateSession(Server);
+            connectionSucceeded = false;
+            connectionFinished = false;
+            try { Session = ArchipelagoSessionFactory.CreateSession(Server); }
+            catch (Exception e) { return false; }
             Session.MessageLog.OnMessageReceived += OnMessageReceived;
             Session.Socket.ErrorReceived += OnError;
             Session.Socket.SocketClosed += OnSocketClosed;
             Session.Items.ItemReceived += ItemReceived;
+            return true;
         }
         
         void OnDestroy()
@@ -78,10 +101,14 @@ namespace Melatonin_AP_Client
             var connectTask = Session!.ConnectAsync();
 
             yield return new WaitUntil(() => connectTask.IsCompleted);
-
-            if (connectTask.Exception != null)
+        
+            if (connectTask.IsFaulted || connectTask.IsCanceled)
             {
-                APConsole.Instance.Log(connectTask.Exception.ToString());
+                var exception = connectTask.Exception?.InnerException?.Message ?? "Took too long...";
+                APConsole.Instance?.Log($"Connection Error: {exception}");
+                connectionSucceeded = false;
+                connectionFinished = true;
+                OnConnectionFailed?.Invoke(exception);
                 yield break;
             }
             
@@ -91,18 +118,21 @@ namespace Melatonin_AP_Client
                 PluginMain.GameName,
                 Slot,
                 ItemsHandlingFlags.AllItems,
-                new System.Version(0, 6, 5), 
+                new Version(0, 6, 7), 
                 Array.Empty<string>(),
                 password: Password
             );
 
             yield return new WaitUntil(() => loginTask.IsCompleted);
-            if (loginTask.Exception != null)
+
+            if (loginTask.IsFaulted || loginTask.IsCanceled)
             {
-                APConsole.Instance.Log(loginTask.Exception.ToString());
+                var exception = loginTask.Exception?.InnerException?.Message ?? "Took too long...";
+                APConsole.Instance?.Log($"Login Error: {exception}");
+                connectionSucceeded = false;
+                connectionFinished = true;
                 yield break;
             }
-
             
             if (loginTask.Result.Successful)
             {
@@ -148,9 +178,10 @@ namespace Melatonin_AP_Client
             APConsole.Instance.Log("Disconnected from Archipelago");
         }
 
-        private void OnError(Exception ex, string message)
+        private void OnError(Exception exception, string message)
         {
-            APConsole.Instance.Log($"Socket error: {message} - {ex.Message}");
+            Debug.LogWarning(exception);
+            APConsole.Instance.Log($"Socket Error: {message} - {exception.Message}");
         }
 
         private void OnSocketClosed(string reason)

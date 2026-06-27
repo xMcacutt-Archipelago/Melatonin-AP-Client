@@ -230,20 +230,33 @@ namespace Melatonin_AP_Client.Hooks
                         return;
                     }
                     var password = passwordTMP?.text ?? "";
-                    SetMessage("Creating Session");
-                    PluginMain.ArchipelagoHandler.CreateSession(server, slot, password);
-                    SetMessage("Connecting");
+                    SetMessage("CREATING SESSION");
+                    if (!PluginMain.ArchipelagoHandler.CreateSession(server, slot, password))
+                    {
+                        SetMessage("ERROR");
+                        return;
+                    }
+
                     PluginMain.ArchipelagoHandler.OnConnected += () =>
                     {
+                        SetMessage("CONNECTED");
                         ConnectionInfoHandler.Save(server, slot, password);
                         SaveManagerPatches.SaveSettings(Utility.SplitData(SaveManager.playerData).Item1);
                         SaveManager.mgr.LoadPlayerData();
-                        if (SaveManager.mgr.GetChapterNum() == -1 || SaveManager.mgr.GetChapterNum() == 0 || !Builder.mgr.CheckIsFullGame())
+                        if (SaveManager.mgr.GetChapterNum() == -1 || SaveManager.mgr.GetChapterNum() == 0 ||
+                            !Builder.mgr.CheckIsFullGame())
                             Interface.env.ExitTo("Chapter_1");
                         else if (SaveManager.mgr.GetChapterNum() >= 1)
                             Interface.env.ExitTo("Chapter_" + SaveManager.mgr.GetChapterNum().ToString());
                         Interface.env.Submenu.PlaySfx(1);
                     };
+                    
+                    PluginMain.ArchipelagoHandler.OnConnectionFailed += (reason) =>
+                    {
+                        SetMessage("ARCHIPELAGO");
+                    };
+                    
+                    SetMessage("CONNECTING");
                     PluginMain.ArchipelagoHandler.Connect();
                     break;
             }

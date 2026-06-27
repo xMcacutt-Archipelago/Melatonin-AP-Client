@@ -95,4 +95,6 @@
   &lt;Assembly Path="F:\SteamLibrary\steamapps\common\Melatonin\Melatonin_Data\Managed\Assembly-CSharp.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\admin\.nuget\packages\netstandard.library\2.0.3\build\netstandard2.0\ref\mscorlib.dll" /&gt;&#xD;
   &lt;Assembly Path="F:\SteamLibrary\steamapps\common\Melatonin\Melatonin_Data\Managed\mscorlib.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">C:\Program Files\dotnet\sdk\8.0.319\MSBuild.dll</s:String>
+	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114122</s:Int64></wpf:ResourceDictionary>
